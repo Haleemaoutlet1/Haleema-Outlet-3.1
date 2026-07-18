@@ -1125,12 +1125,19 @@ function closeMobileNav(){
   document.getElementById('mobile-drawer').classList.remove('open');
 }
 // Close drawer when clicking outside
-document.addEventListener('click',function(e){
-  const btn=document.getElementById('hamburger-btn');
-  const drawer=document.getElementById('mobile-drawer');
-  if(drawer.classList.contains('open')&&!btn.contains(e.target)&&!drawer.contains(e.target)){
-    closeMobileNav();
-  }
+document.addEventListener('click', function(e) {
+    const btn = document.getElementById('hamburger-btn');
+    const drawer = document.getElementById('mobile-drawer');
+
+    if (!btn || !drawer) return;
+
+    if (
+        drawer.classList.contains('open') &&
+        !btn.contains(e.target) &&
+        !drawer.contains(e.target)
+    ) {
+        closeMobileNav();
+    }
 });
 
 // MOBILE NAV PHONE SYNC
